@@ -20,6 +20,7 @@ tokenize({String, _Line, _Column}) ->
 
 tokenize_word([S|String]) when ?is_word_item(S) ->
   tokenize_word_acc([S], String);
+  
 tokenize_word(Rest) -> {error, Rest}.
 
 tokenize_word_acc(H, [S|String]) when

@@ -5,5 +5,11 @@ tokenize(String) ->
   {ok, Result, _Rest} = early_parser:tokenize({String, 1, 1}),
   Result.
 
-smoke_test() ->
+tokenize_ascii_word_test() ->
   {word, "hello"} = tokenize("hello").
+
+tokenize_spanish_word_test() ->
+  {word, "güiño"} = tokenize("güiño").
+
+tokenize_japanese_test() ->
+  {word, "こんにちは"} = tokenize("こんにちは").
