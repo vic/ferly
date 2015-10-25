@@ -1,0 +1,12 @@
+{application, early,
+ [
+  {description, "early"},
+  {vsn, "0.0.1-dev"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { early, []}},
+  {env, [ {ansi_enabled, false} ]}
+ ]}.

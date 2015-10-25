@@ -1,5 +1,9 @@
 -module(early_parser_test).
--inclue_lib("eunit/include/eunit.hrl").
+-include_lib("eunit/include/eunit.hrl").
+
+tokenize(String) ->
+  {ok, Result, _Rest} = early_parser:tokenize({String, 1, 1}),
+  Result.
 
 smoke_test() ->
-  [<<"foo">>] = "jaja"
+  {word, "hello"} = tokenize("hello").

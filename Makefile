@@ -12,7 +12,7 @@ INSTALL_DIR = $(INSTALL) -m755 -d
 INSTALL_DATA = $(INSTALL) -m644
 INSTALL_PROGRAM = $(INSTALL) -m755
 
-.PHONY: compile early test
+.PHONY: clean compile early test
 .NOTPARALLEL: compile
 
 define REBAR_APP_TEMPLATE
@@ -21,6 +21,9 @@ compile_$(1):
 
 test_$(1): compile_$(1)
 	$(Q) cd lib/$(1) && $(REBAR) eunit
+
+clean_$(1):
+	$(Q) cd lib/$(1) && $(REBAR) clean
 endef
 
 $(eval $(call REBAR_APP_TEMPLATE,early))
@@ -28,5 +31,5 @@ $(eval $(call REBAR_APP_TEMPLATE,early))
 default: compile
 
 compile: compile_early
-
 test: test_early 
+clean: clean_early
