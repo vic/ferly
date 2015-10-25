@@ -1,0 +1,12 @@
+{application, ferly,
+[{description, "ferly"},
+ {vsn, "0.0.1-dev"},
+ {modules, [
+   early
+ ]},
+ {registered, []},
+ {applications, [
+   kernel, stdlib
+ ]},
+ {env, [{ansi_enabled, false}]}
+]}.
